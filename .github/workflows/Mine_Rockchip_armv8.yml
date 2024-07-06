@@ -5,13 +5,13 @@ on:
     - cron: "0 4 * * 6"   # Run every Saturday at 04:00 UTC time. 
 
   # push:
-  # repository_dispatch:
-  # workflow_dispatch:
-  #   inputs:
-  #     ssh:
-  #       description: 'SSH connection to Actions'
-  #       required: false
-  #       default: 'false'
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
 env:
   OPNAME: 'R68S、R2S、R4S、R5C、R5S、OPiR1Plus'
