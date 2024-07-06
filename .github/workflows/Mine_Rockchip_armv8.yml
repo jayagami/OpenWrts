@@ -1,4 +1,4 @@
-name: Rockchip_armv8
+name: Mine_Rockchip_armv8
 
 on:
   schedule:
