@@ -28,7 +28,7 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
-  build:
+  initialize:
     runs-on: self-hosted
     
     steps:
@@ -62,6 +62,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
+        rm -rf openwrt
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
@@ -79,6 +80,10 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$SYS_CONF_SH
 
+  configs:
+    runs-on: self-hosted
+
+    steps:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -115,6 +120,10 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
+  compile:
+    runs-on: self-hosted
+
+    steps:
     - name: Compile the firmware
       id: compile
       run: |
