@@ -20,6 +20,3 @@ echo "src-git istore https://github.com/linkease/istore;main" >> feeds.conf.defa
 # 替换默认主题
 rm -rf package/lean/luci-theme-argon 
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  package/lean/luci-theme-argon
-
-# openwrt-packages
-echo "src-git kenzo https://github.com/kenzok8/openwrt-packages" >> feeds.conf.default
