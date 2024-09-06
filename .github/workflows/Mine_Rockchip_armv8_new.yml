@@ -1,4 +1,4 @@
-name: Mine_Rockchip_armv8
+name: Mine_Rockchip_armv8_new
 
 on:
   repository_dispatch:
@@ -24,7 +24,7 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
-  initialize:
+  build:
     runs-on: self-hosted
     
     steps:
